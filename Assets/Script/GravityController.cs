@@ -5,14 +5,13 @@ using UnityEngine;
 public class GravityController : MonoBehaviour
 {
     [SerializeField] float acceleration = 9.8f;
-    // Start is called before the first frame update
+
     void Start()
     {
         if(SystemInfo.supportsGyroscope)
             Input.gyro.enabled = true;   
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 gravity;
