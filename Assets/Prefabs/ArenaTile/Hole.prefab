@@ -46,9 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d62fcb0d536eb1459266c72c0b00791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnBallEnter:
-    m_PersistentCalls:
-      m_Calls: []
+  customEvent: {fileID: 11400000, guid: 32bb1fbb4d49979459977dcfe1ae408b, type: 2}
 --- !u!65 &5587700470762361613
 BoxCollider:
   m_ObjectHideFlags: 0
