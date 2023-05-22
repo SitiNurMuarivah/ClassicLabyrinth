@@ -11,7 +11,7 @@ public class PlayManager : MonoBehaviour
     [SerializeField] CustomEvent gameOverEvent;
     [SerializeField] CustomEvent playerWinEvent;
 
-    int coin = 100; //TODO
+    // int coin = 100;
 
     private void OnEnable()
     {
@@ -32,12 +32,13 @@ public class PlayManager : MonoBehaviour
 
     public void PlayerWin()
     {
-        finishedText.text = "You Win!\nScore:" + GetScore();
+        finishedText.text = "You Win!";
+        // Score:" + GetScore();
         finishedCanvas.SetActive(true);
     }
 
-    private int GetScore()
-    {
-        return coin * 10;
-    }
+    // private int GetScore()
+    // {
+    //     return coin * 10;
+    // }
 }

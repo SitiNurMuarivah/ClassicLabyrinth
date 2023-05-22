@@ -10,30 +10,27 @@ public class CountDown : MonoBehaviour
 
     public UnityEvent OnCountFinished = new UnityEvent();
     public UnityEvent<int> OnCount = new UnityEvent<int>();
-    bool isCounting;
-    Sequence seq;
-    [SerializeField] bool test = false;
-
-    private void OnEnable()
-    {
-        StartCoroutine(CountCoroutine());
-    }
+    // bool isCounting;
+    // Sequence seq;
+    // [SerializeField] bool test = false;
+    Coroutine countCoroutine;
 
     public void StartCount()
     {
-        StartCoroutine(CountCoroutine());
+        if (countCoroutine != null)
+            return;
+
+        countCoroutine = StartCoroutine(CountCoroutine());
     }
 
     private IEnumerator CountCoroutine()
     {
-        // yield return new WaitForSeconds(1);
-        // yield return new WaitForEndOfFrame();
-        Debug.Log(1);
-        // yield return new WaitUntil(() => test);
-        yield return new WaitWhile(() => test == false);
-        Debug.Log(2);
-        yield return new WaitForSecondsRealtime(1);
-        Debug.Log(3);
+        for (int i = duration; i >= 0; i--)
+        {
+            OnCount.Invoke(i);
+            yield return new WaitForSecondsRealtime(1);
+        }
+        OnCountFinished.Invoke();
     }
 
     // public void StartCount()
